@@ -13,8 +13,13 @@ def ticket_by_telephone(telephone):
     name = request.args.get("name", "tickets")
 
     # FASE 1 BUSQUEDA DE TICKETS POR TELEPHONO
+    # Input numero tel,num ticket
+    # Output: ticket en Texto
+
 
     # FASE 2 CREACION DE TICKET EN IMAGEN SAVE LOCAL
+    # Input TEXTO q es ticket
+    # Output ticket en imagen
     img = Image.new('RGB', (100, 100), color = (73, 109, 137))
     d = ImageDraw.Draw(img)
     ticketValue = 'Hello Eder \n Telefono: {telephone}!'
@@ -24,7 +29,8 @@ def ticket_by_telephone(telephone):
 
 
     # FASE 3 UTILS de COMUNICACION CON WHATSAPP/TELEGRAM/ETC
-
+    # Input URL Imagen generada
+    # Output: Salida a Telgram
 
 
     return '{status:ok}'
