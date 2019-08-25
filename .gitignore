@@ -1,7 +1,7 @@
 # MEDIAFILES
 *.png
 FreePaper/*.png
-
+*.ini
 
 # IDEA
 .idea
