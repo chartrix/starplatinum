@@ -10,7 +10,7 @@ $ pip install Pillow
 
 ## Configurar FLASK
 
-$ export FLASK_APP=setup.py
+$ export FLASK_APP=Launcher.py
 
 ## Iniciar FLASK Server
 
