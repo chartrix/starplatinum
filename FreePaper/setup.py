@@ -29,8 +29,9 @@ def ticket_by_telephone(telephone):
     # Input URL Imagen generada
     # Output: Salida a Telgram
 
-# Funcionalidad SMS
+# Funcionalidad SMS https://bit.ly/2HparJQ
 @app.route('tickets/sms/<telephone>')
 def ticket_by_sms(telephone):
+
 
     return '{status:ok}'
