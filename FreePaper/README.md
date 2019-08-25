@@ -1,4 +1,4 @@
-![Image of Yaktocat](images/Logo_index.jpg)
+![Image of Logo](images/Logo_index.jpg)
 
 ## Reto: El futuro de la banca - paperless
 
@@ -13,6 +13,7 @@
 Dependencias a instalar:
 - Flask
 - Twilio
+- FBchat
 
 #### Configurar FLASK
 
