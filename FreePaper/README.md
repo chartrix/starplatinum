@@ -1,17 +1,23 @@
-# Entrar en ambiente virtual
+![Image of Yaktocat](images/Logo_index.jpg)
+
+## Reto: El futuro de la banca - paperless
+
+#### Desde la terminal entrar en ambiente virtual
+
 . venv/bin/activate
 
-# Instalación de dependencias
-### Flask
-$ pip install Flask
-### PILLOW
-$ pip install Pillow
+#### Instalación de dependencias
 
+`pip install -r requirements.txt`
 
-## Configurar FLASK
+Dependencias a instalar:
+- Flask
+- Twilio
+
+#### Configurar FLASK
 
 $ export FLASK_APP=setup.py
 
-## Iniciar FLASK Server
+#### Iniciar FLASK Server
 
 $ python -m flask run
