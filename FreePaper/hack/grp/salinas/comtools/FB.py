@@ -1,23 +1,25 @@
 from fbchat import Client
 from fbchat.models import *
-import os
-from os.path import join, dirname
-from dotenv import load_dotenv
-
+import configparser
 
 class FB:
-    def __init__(self, account, auth):
-        self.__account = account
-        self.__auth = auth
-        self.__clientFB
+    def __init__(self):
+        self.clientFB = None
+        self.config = configparser.ConfigParser()
 
     def setuFB(self):
-        self.__clientFB = Client(self.__account, self.__auth )
+        self.config.sections()
+        self.config.read('conf/credentials.ini')
+        print("FACEBOOK_ACCOUNT_SID=" + self.config['FB']['FACEBOOK_ACCOUNT_SID'])
+        print("FACEBOOK_AUTH_TOKEN=" + self.config['FB']['FACEBOOK_AUTH_TOKEN'])
 
     def sendMessage(self,msg,destinatary):
-        client = self.__clientFB.uid
-        self.__clientFB.sendRemoteImage(
+        self.clientFB = Client(self.config['FB']['FACEBOOK_ACCOUNT_SID'], self.config['FB']['FACEBOOK_AUTH_TOKEN'])
+
+        self.clientFB.sendRemoteImage(
             "https://bit.ly/2HparJQ",
             message=Message(text=msg),
-            thread_id=client.uid,
+            thread_id=self.clientFB.uid,
             thread_type=ThreadType.USER)
+
+        self.clientFB.logout()

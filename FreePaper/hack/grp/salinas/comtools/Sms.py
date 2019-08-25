@@ -1,21 +1,24 @@
 from twilio.rest import Client
-import os
-from os.path import join, dirname
-from dotenv import load_dotenv
+import configparser
 
 class Sms:
-    def __init__(self,account_sid,auth_token):
-        self.__account_sid = account_sid
-        self.__auth_token = auth_token
-        self.__clientSMS
+    def __init__(self):
+        self.clientSMS = None
+        self.config = configparser.ConfigParser()
 
     def setupSms(self):
-        self.__clientSMS = Client(self.__account_sid, self.__auth_token)
+
+        self.config.sections()
+        self.config.read('conf/credentials.ini')
+        print("TWILIO_ACCOUNT_SID=" + self.config['SMS']['TWILIO_ACCOUNT_SID'])
+        print("TWILIO_AUTH_TOKEN=" + self.config['SMS']['TWILIO_AUTH_TOKEN'])
 
     def sendMessage(self,msg,destinatary):
-        message = self.__clientSMS.messages \
+        self.clientSMS = Client(self.config['SMS']['TWILIO_ACCOUNT_SID'], self.config['SMS']['TWILIO_AUTH_TOKEN'])
+        message = self.clientSMS.messages \
             .create(
             body=msg,
             from_='+12013971707',
-            to=destinatary
+            to="+52"+destinatary
         )
+        print(message.sid)
